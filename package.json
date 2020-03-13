@@ -11,8 +11,10 @@
     "cut"
   ],
   "dependencies": {
+    "axios": "1.13.6",
     "good-listener": "^1.2.2",
     "select": "^1.1.2",
+    "socket.io-client": "4.8.3",
     "tiny-emitter": "^2.0.0"
   },
   "devDependencies": {
@@ -34,10 +36,10 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "build": "npm run build-debug && npm run build-min",
-    "build-debug": "webpack",
-    "build-min": "cross-env NODE_ENV=production webpack",
-    "build-watch": "webpack --watch",
+    "build": "node init && npm run build-debug && npm run build-min",
+    "build-debug": "node init && webpack",
+    "build-min": "node init && cross-env NODE_ENV=production webpack",
+    "build-watch": "node init && webpack --watch",
     "test": "karma start --single-run",
     "prepublish": "npm run build"
   }
